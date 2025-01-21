@@ -18,6 +18,14 @@ pipeline {
                     ls -la
                 '''
             }
+            stage('Test'){
+                steps {
+                    sh '''
+                        test -f learn-jenkins-app/build/index.html
+                        npm test
+                    '''
+                }
+            }
         }
     }
 }
